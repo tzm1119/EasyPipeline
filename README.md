@@ -1,7 +1,23 @@
 # EasyPipeline
 this lib aims at build a pipeline for handle a complex process in the easiest way
 
-## context
+## Build and run pipeline
+
+```c#
+public async Task ComplexTask()
+{
+    TestContext context = new TestContext();
+
+    await new ExceptionHandler()
+        .SetRoot()
+        .Next(new FirstHandler())
+        .Next(new SecondtHandler())
+        .Next(new ThirdHandler())
+        .Run(context);
+}
+```
+
+## Context
 ```c#
 public class TestContext
 {
@@ -14,7 +30,7 @@ public class TestContext
     }
 }
 ```
-## handler
+## Handler
 ```c#
 public class ExceptionHandler : Handler<TestContext>
 {
@@ -62,21 +78,5 @@ public class ThirdHandler : Handler<TestContext>
         data.CallBy(nameof(ThirdHandler));
         await base.Handle(data);
     }
-}
-```
-
-## build and run pipeline
-
-```c#
-public async Task ComplexTask()
-{
-    TestContext context = new TestContext();
-
-    await new ExceptionHandler()
-        .SetRoot()
-        .Next(new FirstHandler())
-        .Next(new SecondtHandler())
-        .Next(new ThirdHandler())
-        .Run(context);
 }
 ```
