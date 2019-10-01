@@ -7,11 +7,10 @@ namespace Sample
     {
         static void Main(string[] args)
         {
-            Test1().Wait();
-
+            ComplexTask().Wait();
         }
 
-        public async Task Test1()
+         static async Task ComplexTask()
         {
             TestContext context = new TestContext();
 
