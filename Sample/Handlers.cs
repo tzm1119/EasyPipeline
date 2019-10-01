@@ -1,12 +1,8 @@
 using System;
-
-namespace Sample
-{
-   using System;
 using System.Threading.Tasks;
 using EasyPipeline;
 
-namespace UT
+namespace Sample
 {
     public class ExceptionHandler : Handler<TestContext>
     {
@@ -57,4 +53,3 @@ namespace UT
     }
 }
 
-}
