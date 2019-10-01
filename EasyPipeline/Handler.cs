@@ -36,9 +36,10 @@ namespace EasyPipeline
         protected virtual async Task Handle(TContext data)
         {
             //call next
+            
             if (_nextHandler!=null)
             {
-                 await _nextHandler?.Handle(data);
+                 await _nextHandler.Handle(data);
             }
            
         }
