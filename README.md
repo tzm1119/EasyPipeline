@@ -57,6 +57,7 @@ public class FirstHandler : Handler<TestContext>
         await base.Handle(data);
     }
 }
+
 public class SecondtHandler : Handler<TestContext>
 {
     protected override async Task Handle(TestContext data)
